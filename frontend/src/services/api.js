@@ -4,8 +4,8 @@ import performanceReviewsMockData from '../data/performanceReviews.json';
 
 // ── Axios instance ──────────────────────────────────────────────────────────
 const BASE_URL = import.meta.env.VITE_API_URL || 'https://role-based-leave-management-system.onrender.com';
-console.log('🔌 API BASE_URL:', BASE_URL);
-console.log('🔌 Environment VITE_API_URL:', import.meta.env.VITE_API_URL);
+console.log('API BASE_URL:', BASE_URL);
+console.log('Environment VITE_API_URL:', import.meta.env.VITE_API_URL);
 
 const api = axios.create({
   baseURL: BASE_URL + '/api',
