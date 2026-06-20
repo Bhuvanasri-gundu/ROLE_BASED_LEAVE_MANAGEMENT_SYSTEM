@@ -22,8 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 // CORS Configuration
 const allowedOrigins = [
   'http://localhost:5173', // Local development
-  'http://localhost:5174', // Local development (alternative port)
-  'https://leave-management-system-topaz.vercel.app', // Production frontend
+  'https://role-based-leave-management-system.vercel.app', // Production frontend
 ];
 
 // Add environment-based origins
