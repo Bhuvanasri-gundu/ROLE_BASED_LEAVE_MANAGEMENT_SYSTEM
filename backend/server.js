@@ -41,7 +41,7 @@ app.use(cors({
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      console.log("⚠️  Blocked by CORS:", origin);
+      console.log("Blocked by CORS:", origin);
       // In development, still allow to avoid blocking during testing
       if (process.env.NODE_ENV !== 'production') {
         callback(null, true);
@@ -60,7 +60,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
-    message: '🚀 SmartLeave API is running!',
+    message: 'SmartLeave API is running!',
     timestamp: new Date().toISOString(),
   });
 });
@@ -79,7 +79,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`\n🚀 SmartLeave API Server`);
+  console.log(`\nSmartLeave API Server`);
   console.log(`   Environment : ${process.env.NODE_ENV}`);
   console.log(`   Port        : ${PORT}`);
   console.log(`   Health Check: http://localhost:${PORT}/api/health\n`);

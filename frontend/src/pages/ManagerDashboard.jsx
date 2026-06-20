@@ -83,8 +83,8 @@ export default function ManagerDashboard() {
 
     addToast(
       action === 'approve'
-        ? `Leave Approved Successfully ✅`
-        : `Leave Rejected ❌`,
+        ? `Leave Approved Successfully`
+        : `Leave Rejected`,
       action === 'approve' ? 'success' : 'error'
     );
   };
@@ -98,7 +98,7 @@ export default function ManagerDashboard() {
     try {
       await updateDocumentStatus(docModal.leaveId, action);
       addToast(
-        `Document ${action === 'Verified' ? 'Verified ✅' : 'Rejected ❌'}`,
+        `Document ${action === 'Verified' ? 'Verified' : 'Rejected'}`,
         action === 'Verified' ? 'success' : 'error'
       );
     } catch (err) {

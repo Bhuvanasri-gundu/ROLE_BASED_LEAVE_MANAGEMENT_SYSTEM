@@ -87,10 +87,10 @@ export default function AddEmployee() {
 
       if (isEdit) {
         await updateEmployee(employeeIdParam, payload);
-        addToast('Employee updated successfully ✅', 'success');
+        addToast('Employee updated successfully', 'success');
       } else {
         await addEmployee(payload);
-        addToast('Employee added successfully ✅', 'success');
+        addToast('Employee added successfully', 'success');
       }
 
       await refreshEmployees();

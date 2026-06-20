@@ -88,7 +88,7 @@ export default function ApplyLeave() {
       addLeave({ ...created, id: created._id ?? created.id });
 
       addToast(
-        user.role === 'Admin' ? 'Leave auto-approved! ✅' : 'Leave Applied Successfully ✅',
+        user.role === 'Admin' ? 'Leave auto-approved!' : 'Leave Applied Successfully',
         'success'
       );
       setForm({ leaveType: '', fromDate: '', toDate: '', comments: '', partialDays: 'None' });

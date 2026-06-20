@@ -36,10 +36,10 @@ export function ToastProvider({ children }) {
         {toasts.map((toast) => (
           <div key={toast.id} className={`toast toast--${toast.type}`}>
             <span className="toast__icon">
-              {toast.type === 'success' && '✅'}
-              {toast.type === 'error' && '❌'}
-              {toast.type === 'warning' && '⚠️'}
-              {toast.type === 'info' && 'ℹ️'}
+              {toast.type === 'success'}
+              {toast.type === 'error'}
+              {toast.type === 'warning'}
+              {toast.type === 'info'}
             </span>
             <span className="toast__message">{toast.message}</span>
             <button className="toast__close" onClick={() => removeToast(toast.id)}>×</button>

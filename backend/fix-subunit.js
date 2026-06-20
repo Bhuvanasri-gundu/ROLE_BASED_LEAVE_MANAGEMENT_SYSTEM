@@ -16,7 +16,7 @@ async function fixSubUnit() {
   try {
     console.log('🔧 Connecting to MongoDB...');
     await mongoose.connect(uri);
-    console.log('✅ Connected to MongoDB');
+    console.log('Connected to MongoDB');
 
     // Fix Users - ensure all have subUnit
     console.log('\n📝 Fixing User subUnit field...');
@@ -37,14 +37,14 @@ async function fixSubUnit() {
       ],
       { updatePipeline: true }
     );
-    console.log(`✅ Updated ${updateUsersResult.modifiedCount} users`);
+    console.log(`Updated ${updateUsersResult.modifiedCount} users`);
 
     // Also set default for empty subUnit
     const emptySubUnitResult = await User.updateMany(
       { $or: [{ subUnit: '' }, { subUnit: null }] },
       { $set: { subUnit: 'Engineering' } }
     );
-    console.log(`✅ Set default subUnit for ${emptySubUnitResult.modifiedCount} users`);
+    console.log(`Set default subUnit for ${emptySubUnitResult.modifiedCount} users`);
 
     // Fix Leaves - populate subUnit from employee's subUnit
     console.log('\n📝 Fixing Leave subUnit field...');
@@ -59,27 +59,27 @@ async function fixSubUnit() {
 
     const allLeaves = await Leave.find();
     const leavesWithoutSubUnit = allLeaves.filter(l => !l.subUnit);
-    console.log(`✅ Fixed ${allLeaves.length - leavesWithoutSubUnit.length} leaves`);
+    console.log(`Fixed ${allLeaves.length - leavesWithoutSubUnit.length} leaves`);
 
     if (leavesWithoutSubUnit.length > 0) {
-      console.log(`⚠️  ${leavesWithoutSubUnit.length} leaves still missing subUnit - setting to Engineering`);
+      console.log(`${leavesWithoutSubUnit.length} leaves still missing subUnit - setting to Engineering`);
       await Leave.updateMany(
         { subUnit: { $in: [null, ''] } },
         { $set: { subUnit: 'Engineering' } }
       );
     }
 
-    console.log('\n✅ All fixes completed!');
+    console.log('\nAll fixes completed!');
     
     const userStats = await User.countDocuments();
     const leaveStats = await Leave.countDocuments();
-    console.log(`📊 Database stats:`);
+    console.log(`Database stats:`);
     console.log(`   - Users: ${userStats}`);
     console.log(`   - Leaves: ${leaveStats}`);
 
     process.exit(0);
   } catch (err) {
-    console.error('❌ Error:', err.message);
+    console.error('Error:', err.message);
     process.exit(1);
   }
 }

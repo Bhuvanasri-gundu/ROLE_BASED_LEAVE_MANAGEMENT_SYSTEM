@@ -58,7 +58,7 @@ export default function LeaveList() {
       await updateLeaveStatus(leaveId, status, comment);
       setCommentModal({ open: false, leaveId: null, action: '', comment: '' });
       addToast(
-        action === 'approve' ? 'Leave Approved Successfully ✅' : 'Leave Rejected ❌',
+        action === 'approve' ? 'Leave Approved Successfully' : 'Leave Rejected',
         action === 'approve' ? 'success' : 'error'
       );
     } catch (err) {
@@ -72,7 +72,7 @@ export default function LeaveList() {
     try {
       await updateDocumentStatus(leaveId, action);
       addToast(
-        `Document ${action === 'Verified' ? 'Verified ✅' : 'Rejected ❌'}`,
+        `Document ${action === 'Verified' ? 'Verified' : 'Rejected'}`,
         action === 'Verified' ? 'success' : 'error'
       );
     } catch (err) {

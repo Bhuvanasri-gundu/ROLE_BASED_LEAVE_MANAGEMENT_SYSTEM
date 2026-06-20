@@ -71,7 +71,7 @@ export default function Holidays() {
         length: form.length,
         recurring: form.recurring,
       });
-      addToast('✅ Holiday added successfully!', 'success');
+      addToast('Holiday added successfully!', 'success');
       setShowModal(false);
       setForm({ name: '', date: '', length: 'Full Day', recurring: false });
       await fetchHolidays();

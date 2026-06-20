@@ -66,7 +66,7 @@ export default function LeaveTypes() {
         daysPerYear: parseInt(form.daysPerYear),
         situational: form.situational,
       });
-      addToast('✅ Leave type added successfully!', 'success');
+      addToast('Leave type added successfully!', 'success');
       setShowModal(false);
       setForm({ name: '', daysPerYear: '', situational: false });
       await fetchLeaveTypes();

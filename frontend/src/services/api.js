@@ -29,7 +29,7 @@ api.interceptors.response.use(
     const isFileRequest = error.config?.url?.includes('/uploads');
     
     // Enhanced error logging
-    console.error('❌ API Error:', {
+    console.error('API Error:', {
       status: error.response?.status,
       url: error.config?.url,
       message: error.response?.data?.message || error.message,

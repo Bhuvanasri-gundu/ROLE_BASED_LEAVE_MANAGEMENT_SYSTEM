@@ -60,7 +60,7 @@ export default function EmployeeList() {
         await deleteEmployee(id);
         removeEmployeeFromStore(id);
         setFiltered((prev) => prev.filter((e) => e.id !== id));
-        addToast('Employee deleted successfully ✅', 'success');
+        addToast('Employee deleted successfully', 'success');
       } catch (err) {
         addToast(err.response?.data?.message || 'Failed to delete employee', 'error');
       }
