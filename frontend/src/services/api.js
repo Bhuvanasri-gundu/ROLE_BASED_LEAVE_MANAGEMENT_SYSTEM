@@ -3,7 +3,7 @@ import timesheetsMockData from '../data/timesheets.json';
 import performanceReviewsMockData from '../data/performanceReviews.json';
 
 // ── Axios instance ──────────────────────────────────────────────────────────
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://leave-management-system-backend-mg2o.onrender.com';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://role-based-leave-management-system.onrender.com';
 console.log('🔌 API BASE_URL:', BASE_URL);
 console.log('🔌 Environment VITE_API_URL:', import.meta.env.VITE_API_URL);
 
@@ -17,7 +17,7 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
-  console.log('📤 API Request:', config.method?.toUpperCase(), config.baseURL + config.url);
+  console.log('API Request:', config.method?.toUpperCase(), config.baseURL + config.url);
   return config;
 });
 
